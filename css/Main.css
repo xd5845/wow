@@ -1,0 +1,211 @@
+
+body{ margin:0px; padding:0px; font-family:微软雅黑; font-size:1.0em; font-weight:500; 
+    word-wrap:break-word; word-break:break-all; color:#464646; background-color:#E6E6E6!important}
+    
+.new-panel{ background-color:#eee!important;padding-top:0px!important;padding-left:0px!important;padding-right:0px!important}
+li{ list-style-type:none}
+ul{ padding:0px; margin:0px}
+a{ }
+.logo{background-image:url(../Images/icos/homeico.png); background-repeat:no-repeat; width:25px; height:30px; float:left; margin-left:10px; margin-top:11px;  }
+.PageContent{ padding-left:10px; padding-right:10px}
+.ComText{ color:Black;}
+.ProTitle{ height:45px; line-height:45px; text-align:center; }
+.ui-icon-uico01 {background-image:url(../Images/ico01.png); background-repeat:no-repeat}
+.CartItem{ width:80px; text-align:center}
+.Reduce { width:28px; height:29px; text-align:center; background-image:url(../Images/Cart/Red.png); background-repeat:no-repeat; background-position:right top}
+.Add{ width:28px; height:29px;text-align:center;background-image:url(../Images/Cart/Add02.png); background-repeat:no-repeat;}
+.txtCount{ height:22px!important; border:0px; width:25px; text-align:center;  
+          line-height:22px!important;  margin:auto auto} 
+.txtCountWrap{ height:27px; width:38px; border:1px solid #A8AAB5; line-height:22px!important; text-align:center }
+/*----background-image:url(../Images/Cart/txtBg.png); background-repeat:no-repeat;  */
+
+.ProdCount div{ float:left ; border-bottom-style:outset}
+.ProdCount{ float:right}
+#proDetailWrap .ProdCount{ float:left!important}
+.prolist-left{ height:80px; text-align:center; width:80px}
+.proList-mid{ padding-top:5px; padding-bottom:0px}
+#title{ font-size:20px!important; font-weight:800}
+#pageTitle{ display:none!important} 
+
+.ui-content{ padding-bottom:0px!important }
+.loadding{  height:40px; width:100%; text-align:center;    display:none; padding-top:10px ;  }
+
+/*-----------分割线------------------*/
+hr{ border:1px dashed #ccc}
+
+
+/*-----------导航------------------*/
+.navBar{ height:45px; background-color:#fff; padding:0px; margin:0px; position:fixed; width:100%; color:White; z-index:9999999999; font-size:1.05em}
+.navBar{background-color:#ff5000; width:100%; height:45px}
+
+.navBar table td{ line-height:45px; text-align:center;background-color:#fc8002; border:0px }
+.navbarShop table{width:100%;border-collapse:collapse;border-spacing:0 }
+.navbarShop td{height:46px!important; line-height:48px!important; border-left:1px solid #B7B3B3; text-align:center}
+.navbarShop #navbar_home{ border-left:0px!important;width:65px!important}
+.navbarShopSltMenu{ background-color:#DAD8D8; }
+.navbarShopComMenu{ background-color:#F4F4F4; }
+
+.moreText{ color:Blue;  white-space:nowrap ; text-align:right}
+.backBtn{background-image: url(../../../Images/Icos/left_w24.png); background-position: center center; background-repeat: no-repeat; width:45px; height:45px;line-height: 46px;background-color: #ff5000;float:left;margin-right:16px; }
+.PageTitle{ float:left}
+
+.PageTitle{ font-size:1.2em; font-weight:900; margin-left:15px}
+
+#header div{ float:left; line-height:40PX}
+
+.menumore,.menumore1,.menuSearchBtn,.menuAddBtn,.sysMenuBtn{background-repeat: no-repeat; background-position: center center; width: 52px; height: 45px;  float:right!important; display:none}
+.menumore { background-image: url(../Images/Menu/menumore.png); }
+.menumore1 { background-image: url(../Images/Menu/point.png); }
+.menuSearchBtn{background-image: url(../Images/Icos/Search.png); }
+.menuAddBtn{  font-weight:700!important}
+.sysMenuBtn{background-image: url(../Images/Menu/point.png); display:block!important}
+
+#divbanner{ margin-top:1px}
+
+.bannerabg { background-image: url(../Images/bannerabg.png); color: white; height: 32px; line-height: 32px; font-size: 1.2em; padding-left: 8px; }
+.Mic{ background-image:url(../Images/yuyinBtn.png); background-repeat:no-repeat; width:40px; height:40px; margin-top:0px; float:right }
+
+#searchTextWrap input { height:35px!important; background-image:url(../Images/search.png)!important; background-repeat:no-repeat!important; 
+                      padding-left:35px!important; width:100%!important; background-color:White!important; margin-bottom:0px!important}
+/*------------------------------------------*/
+.labaddress{padding-top:4px;padding-bottom:4px;padding-left:5px;
+          background-repeat:no-repeat;background-position:left center;line-height:32px;}
+          
+#addsWrap{background-color:#fff0f0; }
+#areaName{ padding-right:25px; background:url(../../../Images/Icos/right-arrow.png) no-repeat right center; float:right;
+          padding-left:10px;  width:20px; height:30px }            
+#adrsTdLeft{ }          
+.mallname { padding-top: 8px;margin-bottom:4px; }
+.tdlogo { width: 110px; height: 110px; background-position: center center; background-repeat: no-repeat; }
+div.address{margin-bottom:4px;}
+div.introduction{height:46px;line-height:23px;overflow:hidden;}
+
+
+.sortHeader{ background-color:#EBE9E9;width: 100%; height: 45px; color: #464646; }
+.menuselect { background-color:#CDCCCC; height: 45px; }
+/*------------------底部悬浮层----------------------------*/
+
+.BtnBG1{ background-image:url(../Images/Cart/bg1.png);}
+.BtnBG2{background-image:url(../Images/Cart/bg2.png);}
+
+.btnNew{background-color:#FF6D00!important; color:#fff; -moz-border-radius: 25px;      /* Gecko browsers */
+  -webkit-border-radius: 25px;   /* Webkit browsers */
+  border-radius:25px;            /* W3C syntax */
+  width:80px!important;
+  height:35px;
+  line-height:35px;
+   text-align:center!important
+  }
+.btn3{background-color:#FF6D00!important; color:#fff; -moz-border-radius: 5px;      /* Gecko browsers */
+  -webkit-border-radius: 5px;   /* Webkit browsers */
+  border-radius:5px;            /* W3C syntax */
+  width:80px!important;
+  height:35px;
+  line-height:35px;
+   text-align:center!important }
+
+.longBtnBG{ background-image:url(../Images/Cart/longBtnBg.png); width:140px!important;}
+.BtnBG1,.BtnBG2,.longBtnBG{  width:110px; line-height:30px; height:30px; color:White;  float:none;text-align:center; background-repeat:no-repeat}
+
+
+#BottomCart {font-size:16px; }
+#BottomCart input{ width:100px }
+.BottomCart{ position:fixed; bottom:0px;  width:100%; background-color:#fff; z-index:99999999; border-top:1px solid #ccc ;  }
+.BottomSpaceWrap{width:100%; height:50px}
+/*-------------日期控件样式--------------------*/
+.Wdate{ margin-right:0px; float:right; }
+
+/*---------------价格---------------*/
+.price{ color:Red; font-size:1.3em; font-weight:800 }
+.price3{ color:Red!important; font-weight:700}
+.price2{color:Red;}
+.oldPrice{  text-decoration:line-through}
+#proList .Price{ font-size:16px; font-weight:700}
+.proPrice{ color:Red; }
+.unit{ color:Red;font-size:16px; font-weight:700}
+/*----------------背景遮罩----------------------*/
+#bgWrap{ position:absolute; width:100% ; display:none; background-color:#000000;z-index:1000;  -moz-opacity: 0.6;  opacity:.60;  filter: alpha(opacity=60);}
+.ui-content{ padding-top:0px!important}
+
+/*---------提示信息--------------*/
+.msgBox{ line-height:128px; font-size:16px; color:Red; padding:10px}
+/*.msg{ color:Red}*/
+.msg{ }
+
+/*---------IMPUT-------------------------------*/
+html input[type=text]{ height:25px; line-height:20px}
+html select option{}
+html select{ height:25px; line-height:16px; margin:0px; float:right; margin-left:5px; font-size:1em}
+html input{ outline:none!important}
+
+/***************Menu***************************************/
+
+
+.menulist li{ background-repeat:no-repeat; background-position:left center}
+/*------------datalist-----------------*/
+
+.listImg{ text-align:center}
+.list li{ border-bottom:1px solid #ccc }
+.list table{ width:100%; }
+.list a{ text-decoration:none; color:inherit}
+.list{ font-size:1em;  line-height:30px;margin:0px!important  }
+.list img{ border:0px}
+.list{ width:100%; padding-left:10px; padding-right:10px}
+.dtlist{ width:96%; margin-left:auto; margin-right:auto; line-height:30px!important }
+.dtlist table{ width:100%; }
+.dtlist table td{ }
+.mainlist{ margin-top:0px; background-color:White }
+.mainlist table{width:98%!important ; margin:auto auto}
+.mainlist2{ margin:7px!important;margin-top:0px!important;}
+.mainlist3{ background-color:#eee!important}
+#maindiv{  background-color:#eee}
+
+
+.arrow-right{ background: url(../Images/Right.png); background-position: right top; background-repeat: no-repeat; }
+.shopListLH{ height:120px!important}
+
+.catList{ border-collapse:collapse; border-spacing:3;   width:100%}
+.catList td{ background-color:White; text-align:center; height:45px}
+
+.ItemTb{width:100%; line-height:25px; padding-bottom:10px}
+.prolist-left{width:105px; padding-top:5px!important; padding-bottom:5px!important; padding-left:0px!important; text-align:left }
+.prolist-left img{width:100%}
+.moreLi{ background-image:url(../../../Images/Icos/right-arrow.png); background-repeat:no-repeat; background-position:right top }
+
+
+.tac { text-align: center; }
+.divlist {  margin: 0px; padding-top: 4px; border: solid 1px #f0f0f0;  margin:7px; ; margin-bottom:0px ;width:46.5%; background-color:White; padding-bottom:7px  }
+.divlist-left{  float:left; margin-right:0px}
+.divlist-right{  float:right}
+.title1 {  overflow: hidden; line-height: 26px;height:26px; font-size: 1.0em; padding-top: 2px;font-weight:bold; }
+.title2 {  overflow: hidden; line-height: 26px;height:26px; font-size: 1.0em; padding-bottom: 4px; }
+.divimg { padding: 2px; width: 140px; height: 140px; margin: 0px auto; background-position: center center; background-repeat: no-repeat; }
+.list { padding-top: 8px; }
+
+.ThumbPic{  margin:10px}
+.tdThumbImg{ margin-top:10px; margin-bottom:10px; height:100px; width:100px}
+
+#Splt1 li{ padding-bottom:10px!important; padding-top:10px!important}
+
+#sysShade{  }
+
+/*-----------------------Menu-------------------------------*/
+.divgroup { background-color: #fff;  }
+.divgroupitem { color:#464646;border-bottom: solid 1px #464646; line-height: 42px; padding-left: 8px; }
+/*-----------------Title--------------*/
+.title3{ font-size:1em;white-space:normal;word-break:break-all; font-weight:700; line-height:30px;overflow:hidden; height:30px; padding-right:15px}
+.fixLength-Title{ overflow:hidden; height:30px}
+.title6{ font-size:16px;font-weight:600;color:#77B4F9}
+.title7{ font-weight:700;}
+
+.tac{text-align:center;}
+
+
+/*----------------------*/
+#guanzhu{ width:50px!important;} 
+#qxGuanzhu{width:85px!important; }
+
+#guanzhu,#qxGuanzhu{margin-top:0px; text-align:center!important; float:right; margin-left:10px; height:25px!important;line-height:25px!important;display:none}
+
+/*------------*/
+input{-webkit-user-modify: read-write-plaintext-only!important}

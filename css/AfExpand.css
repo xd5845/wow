@@ -1,0 +1,338 @@
+/*
+#afui.bb.list li a{  text-align:left!important; background-color:Yellow; color:Green}
+*/
+.list li a {
+  text-align: left;
+}
+#navbar {
+}
+#afui.bb.button {
+  height: 300px !important;
+  background-color: Blue !important;
+}
+
+a.button {
+}
+html select {
+  padding: 0px !important;
+  height: 30px !important;
+  width: 60px;
+  text-align: center !important;
+}
+a.cusBtn {
+  height: 30px;
+}
+html input {
+  border: 1px solid #ccc !important;
+}
+.Group div {
+  margin-bottom: 10px;
+}
+.af-badge {
+  background-color: Blue !important;
+}
+.icoMall {
+  background-image: url(../../Images/Svg/Mall.svg) !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+}
+
+.icoShop {
+  background-image: url(../../Images/Svg/Shop.svg) !important;
+  background-position: center 4px !important;
+  background-repeat: no-repeat !important;
+}
+.icoProd {
+  background-image: url(../../Images/Svg/Prod.svg) !important;
+  background-position: center 2px !important;
+  background-repeat: no-repeat !important;
+}
+.icoDiscount {
+  background-image: url(../../Images/Svg/Discount.svg) !important;
+  background-position: center 3px !important;
+  background-repeat: no-repeat !important;
+}
+.icoMy {
+  background-image: url(../../Images/Svg/my.svg) !important;
+  background-position: center 3px !important;
+  background-repeat: no-repeat !important;
+}
+.icoChat {
+  background-image: url(../../Images/Svg/chat.svg) !important;
+  background-position: center 3px !important;
+  background-repeat: no-repeat !important;
+}
+.icoMoney {
+  background-image: url(../../Images/Svg/money.svg) !important;
+  background-position: center 3px !important;
+  background-repeat: no-repeat !important;
+}
+.icoFK {
+  background-image: url(../../Images/Svg/fk.svg) !important;
+  background-position: center 3px !important;
+  background-repeat: no-repeat !important;
+}
+.icoResult {
+  background-image: url(../../Images/Svg/searcResult.svg) !important;
+  background-position: center 3px !important;
+  background-repeat: no-repeat !important;
+}
+.icoXLProd {
+  background-image: url(../../Images/Svg/xlProd.svg) !important;
+  background-position: center 3px !important;
+  background-repeat: no-repeat !important;
+}
+
+.ico-01 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-01.png) center top
+    no-repeat !important;
+}
+.ico-01b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-01b.png) center top
+    no-repeat !important;
+}
+.ico-02 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-02.png) center top
+    no-repeat !important;
+}
+.ico-02b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-02b.png) center top
+    no-repeat !important;
+}
+.ico-03 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-03.png) center top
+    no-repeat !important;
+}
+.ico-03b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-03b.png) center top
+    no-repeat !important;
+}
+.ico-04 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-04.png) center top
+    no-repeat !important;
+}
+.ico-04b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-04b.png) center top
+    no-repeat !important;
+}
+.ico-05 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-05.png) center top
+    no-repeat !important;
+}
+.ico-05b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-05b.png) center top
+    no-repeat !important;
+}
+.ico-06 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-06.png) center top
+    no-repeat !important;
+}
+.ico-06b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-06b.png) center top
+    no-repeat !important;
+}
+.ico-07 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-07.png) center top
+    no-repeat !important;
+}
+.ico-07b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-07b.png) center top
+    no-repeat !important;
+}
+.ico-08 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-08.png) center top
+    no-repeat !important;
+}
+.ico-08b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-08b.png) center top
+    no-repeat !important;
+}
+.ico-09 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-09.png) center top
+    no-repeat !important;
+}
+.ico-09b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-09b.png) center top
+    no-repeat !important;
+}
+.ico-10 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-10.png) center top
+    no-repeat !important;
+}
+.ico-10b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-10b.png) center top
+    no-repeat !important;
+}
+.ico-11 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-11.png) center top
+    no-repeat !important;
+}
+.ico-11b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-11b.png) center top
+    no-repeat !important;
+}
+.ico-12 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-12.png) center top
+    no-repeat !important;
+}
+.ico-12b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-12b.png) center top
+    no-repeat !important;
+}
+.ico-13 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-13.png) center top
+    no-repeat !important;
+}
+.ico-13b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-13b.png) center top
+    no-repeat !important;
+}
+.ico-14 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-14.png) center top
+    no-repeat !important;
+}
+.ico-14b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-14b.png) center top
+    no-repeat !important;
+}
+.ico-15 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-15.png) center top
+    no-repeat !important;
+}
+.ico-15b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-15b.png) center top
+    no-repeat !important;
+}
+.ico-16 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-16.png) center top
+    no-repeat !important;
+}
+.ico-16b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-16b.png) center top
+    no-repeat !important;
+}
+.ico-17 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-17.png) center top
+    no-repeat !important;
+}
+.ico-17b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-17b.png) center top
+    no-repeat !important;
+}
+.ico-18 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-18.png) center top
+    no-repeat !important;
+}
+.ico-18b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-18b.png) center top
+    no-repeat !important;
+}
+.ico-22 {
+  background: url(../DefaultSkin/Images/Icos/New/ico-22.png) center top
+    no-repeat !important;
+}
+.ico-22b {
+  background: url(../DefaultSkin/Images/Icos/New/ico-22b.png) center top
+    no-repeat !important;
+}
+
+.ico-01,
+.ico-02,
+.ico-03,
+.ico-04,
+.ico-05,
+.ico-06,
+.ico-07,
+.ico-08,
+.ico-09,
+.ico-10,
+.ico-11,
+.ico-12,
+.ico-13,
+.ico-14,
+.ico-15,
+.ico-16,
+.ico-17,
+.ico-18 {
+  background-position: center 3px !important;
+}
+.ico-01b,
+.ico-02b,
+.ico-03b,
+.ico-04b,
+.ico-05b,
+.ico-06b,
+.ico-07b,
+.ico-08b,
+.ico-09b,
+.ico-10b,
+.ico-11b,
+.ico-12b,
+.ico-13b,
+.ico-14b,
+.ico-15b,
+.ico-16b,
+.ico-17b,
+.ico-18b {
+  background-position: center 3px !important;
+}
+
+.ico-22b,
+.ico-22 {
+  background-position: center 1px !important;
+}
+
+.ui-loader {
+  background-color: #ccc !important;
+}
+.panel {
+  overflow: scroll !important;
+}
+.panel1 {
+  background-color: #f0f0f0 !important;
+}
+.carousel_paging {
+  border-radius: 0.5em;
+  background: #ccc;
+  width: 0.5em;
+  height: 0.5em;
+  display: inline-block;
+}
+
+.carousel_paging_selected {
+  border-radius: 0.5em;
+  background: #777;
+  width: 0.5em;
+  height: 0.5em;
+  display: inline-block;
+}
+
+.spacer {
+  width: 0.2em;
+  float: left;
+}
+
+.carousel_content {
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+#navbar {
+  background-image: url(../DefaultSkin/Images/navBarBg.png) !important;
+  background-repeat: repeat-x !important;
+  height: 46px !important;
+}
+#navbar a {
+  color: #464646 !important;
+  background-color: inherit !important;
+  border-top: 0px !important;
+  border-right: 0px !important;
+}
+#navbar {
+  position: fixed !important;
+  bottom: 0px !important;
+}
+/*background-image:url(../DefaultSkin/Images/navBarBg.png)!important;border-top:0px!important;border-right:0px!important */
+.footer {
+  border-top: 0px !important;
+}
+/*  ../../../Images/Svg/Mall.svg*/

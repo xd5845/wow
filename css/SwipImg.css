@@ -1,0 +1,50 @@
+#swipPic img {
+}
+.imgWrap {
+  float: left;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+#swipTb {
+  border-width: 0px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+#swipPic td {
+  text-align: center;
+  background-color: White;
+  padding: 0px;
+}
+.comBlock {
+  background-color: #666;
+  width: 12px;
+  height: 12px;
+  float: left;
+  margin-left: 13px;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.8;
+  -khtml-opacity: 0.8;
+  opacity: 0.8;
+}
+
+.sltBlock {
+  background-color: #333;
+  width: 12px;
+  height: 12px;
+  float: left;
+  margin-left: 13px;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.8;
+  -khtml-opacity: 0.8;
+  opacity: 0.8;
+}
+
+#swipPicBottom {
+  height: 20px;
+  width: 120px;
+  position: relative;
+  z-index: 9999;
+  top: -25px;
+  margin: auto auto;
+}

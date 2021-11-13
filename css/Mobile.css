@@ -1,0 +1,135 @@
+body 
+{
+    
+}
+h3{ color:#ff6d00; padding-bottom:10px}
+li{ }
+
+#TopWrap{ width:100%; position:fixed; z-index:999999;top:0px }
+#TopBar {  width:100%;  line-height:45px; }
+#sep{width:100%}
+#wrapper{  padding-top:80px}
+#TopBar div{ float:left}
+#TopBar img{ }
+.BtnMoreInfo{ background: url(../Images/MoreInfo.png) no-repeat; border:0px;  background-position:right;   cursor:pointer; display:none;margin-right:30px; height:40px; width:90%; margin-bottom:60px}
+.BtnMoreRes{background: url(../Images/MoreRes.png) no-repeat; border:0px;  background-position:right;  cursor:pointer; display:none;height:40px;  width:90%;  margin-right:30px; margin-bottom:50px; }
+.btnMore{ width:100%; height:20px}
+#certbox {  font-size:14px;  line-height:30px; text-align:left; color:#000; width:100%; float:left; display:none ; padding-bottom:100px}
+/*height:294px!important;  */
+#certbox .ColContent{ height:auto!important; }
+/* height:270px!important;overflow:auto;overflow-x:hidden;*/
+.AddInfo{ }
+#certbox img{ border:0px }
+
+.cerImgWrap{ width:100% }
+.cerImgWrap td{ vertical-align:middle; text-align:center; width:100% ; padding-top:5px; padding-bottom:5px}
+#tabAuthCust img{ width:60px; height:60px}
+.InfoItem{ width:85px; font-weight:800; font-size:14px; text-align:right  }
+    
+.ItemTB {table-layout:fixed;word-break:break-all; width:100%; text-align:left}
+.ItemTB td{ }
+.ProTitle{ height:40px; width:100%; overflow:hidden; background-color:#f4ba3d; line-height:40px; text-indent:20px; font-size:16px; color:White;  }
+.ComCol{width:100%; border-bottom:1px solid #ccc; padding-bottom:10px;  margin-bottom:10px}
+#lan{ text-align:right; width:310px}
+#Menu{ }
+.Menu{ width:100%; cursor:pointer;  position:fixed; bottom:0px; z-index:100; background:url(../Images/MenuBg2.png); background-repeat:repeat-x; height:44px; padding:0px}
+/* width:100%; cursor:pointer;  position: absolute; bottom:-5px; background:url(../Images/mobile/MenuBg2.png); background-repeat:repeat-x; height:44px; padding:0px */
+.MenuInfo{ width:100%; cursor:pointer;  background:url(../Images/MenuBg2.png); background-repeat:repeat-x; height:44px; padding:0px; float:left}
+#divAuthCust{ color:Red}
+/*--background:url(../Images/mobile/Lan1.png); */
+#LanBar{  background-repeat:no-repeat; height:34px;  width:50px ; position:absolute; right:0px; top:0px; z-index:99997}
+#LanBar div{ float:right; margin-right:10px; }
+#LanBar div{ cursor:pointer; height:43px; line-height:43px}
+#prod{ margin-bottom:15px}
+#Content{ width:100%;}
+#info{ width:100%}
+#infoContent{ width:100%; text-align:center}
+.infoTitle{ width:100%; font-family:黑体 ; height:30px; color:#464646 ;background-color:#f4ba3d; margin-bottom:5px; margin-left:auto; margin-ryight:auto; line-height:30px}
+#TitleText{  margin-left:40%; float:left;font-weight:800;}
+#infoBtn{ }
+#infoTxt1{ border:1px solid #ccc; width:90%; height:105px;margin-bottom:5px;margin-left:auto; margin-right:auto}
+#infoTxt2{ border:1px solid #ccc; width:90%; height:35px;margin-left:auto; margin-right:auto}
+#labCode{  background-repeat:no-repeat; margin-left:0px;   height:30px;  text-align:left;color: #d8942c; font-weight: bold; margin-top: 8px;   padding:0px ; width:100%}
+.Block{ display:none; }
+    
+.proMTitle{color:#434343; font-weight:700;font-size:16px;  text-align:center; font-weight:700  }
+.styleNo{  text-align:center}
+.proMTitle2{color:#434343; font-size:16px; padding-left:10px; background-image:url(../../../Images/Icos/right-arrow.png); padding-right:15px;   background-repeat:no-repeat; background-position:right top;  }
+.proText{color:#464646; padding-left:10px; }
+.proMTB{background-repeat:no-repeat; margin-bottom:4px; border-bottom:1px solid #ccc; width:100%;margin-left:auto; margin-right:auto; padding-bottom:5px; }
+.proRelTextPrice{ color:Red;padding-left:10px}
+.custData{ width:99%}
+    
+/* background:url(../Images/mobile/Cust/ss3.png); width:64px; height:30px; border:0px; background-color:inherit; background-repeat:no-repeat;font-size: 12px;*/
+#btnSearch{ width:60px;}
+.MenuItem{  height:44px; line-height:44px;background:url(../Images/MenuBG2.png); text-align:center}
+.MenuItem2{ background:url(../Images/MenuBG1.png); height:44px;line-height:44px;background-repeat:repeat-x; text-align:center ; color:#ff8400}
+.MenuTxtWrap{ width:100%; height:44px;line-height:44px; background-image:url(../Images/MenuSplit.png); background-position:right; background-repeat:no-repeat}
+#custData { line-height:25px}
+    
+    
+#prodDetailTB{ margin-left:auto; margin-right:auto; width:300px;   background-color:White;line-height:30px!important}
+#prodDetailTBWrap{width:100%;  float:left; margin-left:auto; margin-right:auto; margin-top:10px; }
+    
+.popClose{width:100%;text-align:right; float:left;background-color:#fff; }
+    
+.tabAuthCust { border-bottom:1px solid #ccc;width:96%;margin-left:auto; margin-right:auto; padding-bottom:5px; padding-top:5px}
+    
+#tabAuthCust{ width:100%}
+.infoMoreWay{ text-align:left; width:100%}
+.MoreWayTitle{ text-align:right;  vertical-align:top}
+.MoreWayText{vertical-align:top ;word-break:break-all;}
+/*.errMsg{ font-size:16px; ; color:Red; height:30px; line-height:30px }*/
+.errMsg{ font-size:16px; ; height:30px; line-height:30px }
+.msg{  width:100%;margin-left:auto; margin-right:auto;  height:2em; line-height:2em}
+    
+#areSelWrap div{ float:left; margin-left:10px}
+#prodImgList{ width:280px!important;margin-left:auto!important; margin-right:auto!important;}
+#prodImgContent img{  margin-top:10px!important;  clear:both!important;}
+.dataTb .tdLeft{width:85px; }
+.dataTb td{display:table-cell; vertical-align:top }
+.itemTitle{ font-weight:700}
+#prodDes{ padding-top:10px!important; line-height:25px!important}
+.pnlContWrap{ padding-top:10px}
+.certItemBox{ width:100%;  padding-bottom:10px;  }
+.cerTitle{ width:100%; text-align:center}
+.itemtTitle{ font-weight:700; }
+.itemLeft{ width:110px; text-align:right; vertical-align:top; padding-left:20px}
+   
+#divResult table{ line-height:25px}
+
+#companyItemList{ line-height:35px; height:35px; width:100% ; }
+#companyItemList td{ border-bottom:1px dashed #ccc; vertical-align:top}  
+.sellerInfoItem_Tel { background: url(../../DefaultSkin/Images/Icos/10ico02.png); background-repeat: no-repeat;  background-position:left center;}
+.sellerInfoItem_Time { background: url(../../DefaultSkin/Images/Icos/10ico05.png); background-repeat: no-repeat; background-position:left center;}
+.sellerInfoItem_Area { background: url(../../DefaultSkin/Images/Icos/10ico01.png); background-repeat: no-repeat; background-position:left center;}
+.sellerInfoItem_Des { background: url(../../DefaultSkin/Images/Icos/10ico04.png); background-repeat: no-repeat; background-position:left 5px;}
+#companyLogo img{ width:90px}
+#itemCompanyName{ font-weight:800}
+.certName{  font-weight:700}
+
+.BigImgListWrap { width: 300px; height: 300px; border-left: 1px solid #ccc; margin: auto auto; } 
+
+.logsItem{ border-bottom:1px dashed #ccc; padding-bottom:10px; line-height:30px}
+.logsItem_title{ font-weight:700; color:Blue}            
+
+.prodImgList{  }
+#midContent li{ padding-top:10px!important; padding-bottom:10px!important}
+/* .panel{ padding-left:0px!important;padding-right:0px!important}
+#main{ padding-left:10px!important;padding-right:10px!important}
+*/
+.pxxPageTitle2{ background-color:#f4f6f7; width:auto!important; height:40px; line-height:40px; font-weight:700; padding-left:10px;  }
+.pxxTitle3{width:100%;border-bottom:1px solid #ccc;color:#f57a00; font-weight:700; line-height:30px; height:30px; padding-left:10px }
+.safeInfoTb td{ border-bottom:1px dashed #ccc;}
+.safeInfoTb .tdLeft{ width:100px; text-align:right; vertical-align:top}
+.safeInfoTb td{ line-height:30px}
+.safeInfoTb{  margin-bottom:30px}
+
+.imgLodding{ width:100%; height:40px; background-image:url(../../DefaultSkin/Images/loading.gif); 
+             background-repeat:no-repeat; background-position:center center; }
+             
+ #btnJian{ float:right!important; font-weight:800; font-size:20px; display:none; padding-right:10px}
+ #btnFan{ float:right!important;font-weight:800; font-size:20px;display:none;padding-right:10px}
+ 
+ .titleDownLoad{ background-image:url(../Images/downLoad.png); 
+             background-repeat:no-repeat; background-position:12px 2px; padding-left:45px; color:#0099e5}

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html style="height: 100%px;" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>追溯信息查询</title>
+    <!--指定页面手机内存缓存中的存储时间段-->
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <!--width - viewport的宽度 height - viewport的高度、initial-scale - 初始的缩放比例、minimum-scale - 允许用户缩放到的最小比例、maximum-scale - 允许用户缩放到的最大比例、user-scalable - 用户是否可以手动缩放-->
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="./css/af.ui.min.css" rel="stylesheet" type="text/css">
+    <link href="./css/bb_10scm.css" rel="stylesheet" type="text/css">
+    <link href="./css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="./css/Main.css" rel="stylesheet" type="text/css">
+    <link href="./css/AfExpand.css" rel="stylesheet" type="text/css">
+    <link href="./css/SwipImg.css" rel="stylesheet" type="text/css">
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- <script type="text/javascript" charset="utf-8" src="./js/appframework.js"></script> -->
+    <script src="./js/ch.js" type="text/javascript"></script>
+
+<!--    <script src="../JS/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../JS/appframework-2.1.0/jq.appframework.js" type="text/javascript"></script>
+    <script src="../JS/appframework-2.1.0/build/ui/appframework.ui.js" type="text/javascript"></script>-->
+
+
+    <!-- <script type="text/javascript" charset="utf-8" src="../JS/appframework-2.1.0/appframework.js"></script>
+<script type="text/javascript" charset="utf-8" src="../JS/appframework-2.1.0/plugins/af.css3animate.js"></script>
+<script type="text/javascript" charset="utf-8" src="../JS/appframework-2.1.0/plugins/af.scroller.js"></script>
+<script type="text/javascript" charset="utf-8" src="../JS/appframework-2.1.0/plugins/af.touchLayer.js"></script>
+<script type="text/javascript" charset="utf-8" src="../JS/appframework-2.1.0/plugins/af.popup.js"></script>
+<script type="text/javascript" charset="utf-8" src="../JS/appframework-2.1.0/ui/appframework.ui.js"></script> -->
+
+
+    <!-- <script src="../jsconfig.ashx" type="text/javascript"></script> -->
+     <!-- <script src="../JS/Main.js" type="text/javascript"></script><link rel="stylesheet" type="text/css" href="./css/AfExpand.css"><meta name="format-detection" content="telephone=no"><meta http-equiv="content-type" content="text/html; charset=UTF-8"> -->
+<!--      <script src="../JS/af.carousel.js" type="text/javascript"></script>-->
+    <!-- <script src="../JS/FW/MobileLang.js" type="text/javascript"></script>
+
+     <script src="../JS/WebPart/SwipImg.js" type="text/javascript"></script>
+
+     <script src="../JS/codeparser.js" type="text/javascript"></script>
+     <script src="../../js/common.js" type="text/javascript"></script>
+     <script src="../../js/setStorage.js" type="text/javascript"></script> -->
+   
+   <style>
+   
+   #backButton{ display:none!important}
+   .panel{ padding-bottom:50px!important}
+   </style>
+   <script>
+       console.log("页面：antifalsify.htm");
+
+       
+
+       //TraceSearch()
+//       sessionStorage.setItem("basePath", "http://192.168.3.108:8099/");
+       var basePath = sessionStorage.getItem("basePath");
+
+       var fwCode = "";
+       var refTimes = 1;
+       var Code = "";
+       var codeType = sessionStorage.getItem("codeType");
+       // getParam("code");
+       Code = sessionStorage.getItem("code");
+       typ = sessionStorage.getItem("type");
+       sessionStorage.setItem("lastUrl",window.location.href);
+       var lastCode=sessionStorage.getItem("lastCode");
+       if (lastCode != null && lastCode != Code) {
+
+           ClearPageStorage();
+           sessionStorage.removeItem("pxxProdCode");
+           sessionStorage.removeItem("prodCode");
+           sessionStorage.removeItem("pxxSellerCode");
+           sessionStorage.removeItem("pxxSysCustCode");
+           sessionStorage.removeItem("pxxSellerCode");
+           sessionStorage.removeItem("pxxFactoryId");
+
+           
+       
+       }
+
+       sessionStorage.setItem("lastCode", Code);
+      
+      
+      
+   </script>
+
+    <!-- 框架加载设置-->            
+    <script>
+      
+        //设置皮肤
+            var themes = "bb_10scm";
+            $.ui.useOSThemes = true;
+            if (themes.length > 0) //Android fix has too many buggy issues on iOS - can't preview with $.os.android
+            {
+          
+                $.ui.useOSThemes = true;
+                if (themes == "win8")
+                    $.os.ie = true;
+                $.ui.ready(function () {
+                    $("#afui").get(0).className = themes;
+                   
+                });
+            }
+            $.ui.resetScrollers = false;
+     
+     //框架 用户自定义方法
+            var url = window.location.href;
+            $.ui.ready(function () {
+                setMenu();
+                HideSptItem();
+                $.ui.showBackButton = false;
+                $("#backButton").css("z-index", "999999999");
+            });
+
+
+
+
+     //根据条码类型显示网页中部内容菜单
+     function HideSptItem() {
+
+         var url = window.location.href;
+         if (typ == 1) {
+             $("#tmCodeSplt").hide();
+         }
+         else {
+             $("#fwCodeSplt").hide();
+             $("#tmCodeSplt").show();
+             $("#A2").hide();
+             $("#A5").show();
+         }
+     }
+
+   
+ </script>
+    
+
+    <!--手机样式文件 -->
+  
+    <link href="./css/Mobile.css" rel="stylesheet" type="text/css">
+
+    <!--UI控制 -->
+    <script type="text/javascript">
+        //手机屏幕横放竖放改变窗口大小
+        $(window).resize(function () {
+            var width = $(window).width();
+            $("#TopWrap").width(width);
+            $("#Menu table").width(width);
+        })
+        var url = document.URL;
+        //菜单点击后根据ID显示不同的内容
+        function ShowInfo(divId) {
+            $(window).scrollTop(0);
+            $("#Content .Block").hide();
+            $("#abShow").hide();
+            $("#info").hide();
+            $("#prod").hide();
+            $("#" + divId + "").show();
+            var scrlHei = $("#prod").height();
+            var divHei = $("#" + divId + "").height();
+            if (divId == "certbox") {
+                $("#prod").show();
+            }
+            $("#Menu").css("color", "#464646");
+            if (divId == "cust")
+                $("#abShow").show();
+            if (divId == "info") {
+                $("#TopWrap").hide();
+                $("#wrapper").hide();
+            }
+            else {
+                $("#TopWrap").show();
+                $("#wrapper").show();
+            }
+        }
+
+        $(document).ready(function () {
+
+            //window.location.href = location.href + "?code=111";
+
+
+            //            SetMenu(this, 2);
+            TraceSearch(); //初始化加载商品详细信息
+        });
+
+
+        //设置按钮点击样式
+//        function SetMenu(obj, MenuIndex) {
+//            $("#Menu td").attr("class", "MenuItem");
+//            $("#Menu" + MenuIndex).attr("class", "MenuItem2");
+//        }
+// 
+    </script>
+
+    
+
+    <!--AJAX调用后台接口 -->
+    <!-- <script src="../JS/FW/PxxAjax.js" type="text/javascript"> -->
+    </script>
+
+<style id="iosBlurrHack">#afui .y-scroll > *, #afui .x-scroll > * {-webkit-backface-visibility: hidden;-webkit-perspective:1000;}</style></head>
+<body style="height: 100%;">
+  
+   <div id="afui" class="bb_10scm" style="height: 100%;">
+    <!--隐藏域 -->
+    <input id="moreCust" type="hidden" value="No"> <!-- 商家是否有分页Yes or No-->
+    <input id="hidCurPage" type="hidden" value="1"><!-- 商家 当前页码-->
+    <input id="hidLanguage" type="hidden" value=""> <!--语言 1简体，2繁体 -->
+
+       <div id="header" class="header"> <header id="defaultHeader">
+           <!-- <a id="backButton" class="button" style="visibility: hidden; z-index: 999999999;">Back</a>
+           <h1 id="pageTitle"></h1><div id="menumore" class="menumore"></div><div id="backBtn" class="backBtn"></div> -->
+           <div id="backBtn" class="backBtn" style="background:#ff5000 url(./imgs/left_w24.png)  center 9px  no-repeat;">
+                <a href="./index.html" style="opacity: 0; display: inline-block !important; width: 100%; height: 100%;">Back</a>
+            </div>
+           <div id="title" style="padding-left: 8px;">溯源防伪查询系统</div><div id="menuSearchBtn" class="menuSearchBtn"></div>
+           <div id="btnJian" style="display: none;">简</div>
+           <div id="btnFan" style="display: none;">繁</div>
+   </header></div>
+    <script src="./js/Header.js" type="text/javascript"></script>
+    
+    
+  <!--   <div style='width:100%;border-bottom:1px solid #ccc' class='pxxPageTitle2 titleDownLoad' id="pxxPageTitle2">下载客户端，查询更方便</div>-->
+       <!-- <script src="../JS/WebPart/Title2.js" type="text/javascript"></script> -->
+    <div id="content"><!-- here is where you can add your panels -->
+ 
+    <div data-title="" id="main" class="panel y-scroll" selected="true" style="overflow: hidden; display: none; transform: none; backface-visibility: hidden; transition: none 0s ease 0s; transform-origin: 0% 0%; z-index: 1;" js-scrolling="true" title=""><div class="afScrollPanel" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+    <!--<div id="goIndex" onclick="window.location.href='../Index.htm'" >sdsdsd</div>-->
+
+        <!--主内容区 -->
+          <div id="MainPro" style="height: 821.8px;">
+            <div id="labCode" style="border-bottom:3px solid #FF8400;   width:100%; margin-bottom:5px;  padding-left:10px ">1776 3285 7924 5056 4729</div>
+           <!--显示产品详细 -->
+            <div id="prod" style=" margin-left:0px; margin-right:auto;   ">
+         
+            
+            <div id="divResult" style=" width:98%; margin-bottom:5px; font-size: 17px !important;"><table id="tab" cellpadding="0" cellspacing="2" border="0" style="width:100%;"><tbody><tr><td align="left" valign="top" width="88px">商品名称：</td><td>安宫牛黄丸</td></tr><input type="hidden" id="hidProdSysCode" value="04424511"><tr><td align="left" valign="top" width="88px">品　　牌：</td><td>北京同仁堂</td></tr><tr><td align="left" valign="top" width="88px">规格型号：</td><td>每丸重3g</td></tr><tr><td align="left" valign="top" width="88px">产　　地：</td><td>中国北京及香港</td></tr><input type="hidden" id="hidProdBatch" value="21019509"><input type="hidden" id="hidBindingCustCode" value="12356633"><tr><td align="left" valign="top" width="88px">生&nbsp;&nbsp;产&nbsp;&nbsp;商：</td><td>北京同仁堂国药有限公司</td></tr><tr><td align="left" valign="top" width="88px">生产批号：</td><td>21019509</td></tr><tr><td align="left" valign="top" width="88px">生产时间：</td><td>2021-05-03</td></tr><input type="hidden" id="hidProduceDate" value="2021-05-03"><tr><td align="left" valign="top" width="88px">有效期至：</td><td>2026-05-02</td></tr><tr><td align="left" valign="top" width="88px">销&nbsp;&nbsp;售&nbsp;&nbsp;商：</td><td>北京同仁堂(澳门)有限公司<input type="hidden" id="hidSellerCode" value="customcode"></td></tr><input type="hidden" id="hidProdSSCode" value="fb205a58-9df4-73a7-5e39-b378a9f1b923"><tr><td align="left" valign="top" width="88px">厂商网址：</td><td><a href="https://cm.tongrentang.com/  " target="_blank">https://cm.tongrentang.com/</a></td></tr><tr><td align="left" valign="top" width="80px" style="">温馨提示：</td><td style="color:#0960DB;"><span style="color:#0960DB; ">该码已于2021年08月13日15时14分被查询，谨防假冒。</span></td></tr><script>isSuc='1';var showLogis='N';var showSeller='Y';var ProdAttachmentCount=0;var ProdBatchAttachmentCount=0;var ProdBatchCertCount=0;var ProdCertCount=0;var ProdImgCount=2;var FactorySafetyCount=0;</script></tbody></table></div>
+           <div style=" display:none" onclick="javascript:GetMoreInfo();$(this).hide();" class="BtnMoreInfo" id="btnMore"></div>
+
+
+           <div style="display: block;" id="splMenu">
+           <div style="  height:250px; width:100%;  " id="midContent">
+           <h3>更多信息</h3>
+        
+                    <ul class="list" style=" padding-bottom:40px " id="fwCodeSplt">
+                 
+
+                        <li style=" text-align:left; ">
+                            <a href="#prodDes" id="prodDesM" class="icon Paper big" onclick="GetProdDes('prodDes','prodDesContent');SetTitle('商品简介');">商品简介</a>
+                        </li>
+                        <li class="prodImgLi">
+                            <a href="#prodImg" class="icon Paper big" onclick="GetProdImgs('prodImg','prodImgContent');SetTitle('商品图片');">商品图片<span class="af-badge" data-ignore-pressed="true" style="background: blue;" id="prodImgCount">2</span></a>
+                        </li>
+                        <li class="prodCertLi" afmoldstyle="block" style="display: none;">
+                            <a href="#prodCert" class="icon Paper big" onclick="GetCert('cert','prodCertContent');SetTitle('商品证书');">商品证书<span class="af-badge" data-ignore-pressed="true" style="background: red;" id="prodCertCount">0</span></a>
+                        </li>
+                         <li class="prodCertBatchLi" afmoldstyle="block" style="display: none;">
+                            <a href="#prodCertBatch" class="icon Paper big" onclick="GetCert('certBatch','prodCertBatchContent');SetTitle('批次证书');" "="">批次证书<span class="af-badge" data-ignore-pressed="true" style="background: red;" id="prodCertBatchCount">0</span></a>
+                        </li>
+                        <li class="prodInfoLi" afmoldstyle="block" style="display: none;">
+                            <a href="#prodInfo" class="icon Paper big" onclick="GetCert('prodInfo','prodInfoContent');SetTitle('生产信息');">生产信息<span class="af-badge" data-ignore-pressed="true" style="background: rgb(22,34,100);" id="prodInfoCount">0</span></a>
+                        </li>
+                        <li class="logisticsLi" onclick="SetTitle('物流信息');" afmoldstyle="block" style="display: none;">
+                            <a href="#logisticsInfo" class="icon Paper big">物流信息</a>
+                        </li>
+                    </ul>
+                        <ul class="list" style=" display:none " id="tmCodeSplt">
+                      <!--        <li  style=" text-align:left; ">
+                            <a href="http://192.168.3.52:8083/Main/index.htm"  data-transition="pop"  data-persist-ajax="true" class='icon Paper big' onclick="SetTitle('商店详细测试');">商店详细测试</a>
+
+                        </li>-->
+
+
+                        <li style=" text-align:left;">
+                            <a href="#SafetyInfo" id="A4" class="icon Paper big" onclick="loadSafeInfo();SetTitle('安全信息');">安全信息</a>
+                        </li>
+                        <li>
+                                <a href="#prodDes" id="A6" class="icon Paper big" onclick="GetProdDes('prodDes','prodDesContent');SetTitle('商品简介');">商品简介</a>
+                        </li>
+                        <li class="prodImgLi">
+                           <a href="#prodImg" class="icon Paper big" onclick="GetProdImgs('prodImg','prodImgContent');SetTitle('商品图片');">商品图片<span class="af-badge" data-ignore-pressed="true" style="background: red;" id="prodImgCount2">2</span></a>
+                        </li>
+                         <li class="prodCertLi" afmoldstyle="block" style="display: none;">
+                            <a href="#prodCert" class="icon Paper big" onclick="GetCert('cert','prodCertContent');SetTitle('商品证书');">商品证书<span class="af-badge" data-ignore-pressed="true" style="background: red;" id="prodCertCount2">0</span></a>
+                        </li>
+                        <li>
+                            <a href="#factoryInfo" class="icon Paper big" onclick="SetTitle('厂商信息');">厂商信息</a>
+                        </li>
+
+                    </ul>
+            </div>
+            </div>
+        </div>
+            <!--显示证书 -->
+            <div id="certbox" class="Block" style="width: 100%; display: block;">
+            </div>
+          </div>
+    
+    </div><div class="afScrollbar" style="position: absolute; width: 5px; height: 399.427px; border-radius: 2px; display: none; background: black; top: 0px; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); right: 0px;"></div></div>
+      <!---------------安全信息------------------->
+         <div id="SafetyInfo" class="panel y-scroll" js-scrolling="true" data-title="  " style="overflow: hidden;" title=""><div class="afScrollPanel">
+                <div id="SafetyInfoContent">
+              <!--  <span class=" errMsg">数据中心尚未收录到该商品的市场检测信息！</span>-->
+              </div>
+         </div><div class="afScrollbar" style="position: absolute; width: 5px; height: 20px; border-radius: 2px; display: none; background: black; top: 0px;"></div></div>
+           <!---------------厂商信息------------------->
+         <div id="factoryInfo" class="panel y-scroll" js-scrolling="true" data-title="" title="" style="overflow: hidden;"><div class="afScrollPanel">
+                <div id="factoryInfoContent">
+              <span class="errMsg">  该厂商未录入相关信息！</span>
+              </div>
+         </div><div class="afScrollbar" style="position: absolute; width: 5px; height: 20px; border-radius: 2px; display: none; background: black; top: 0px;"></div></div>
+
+    <!---------------产品简介------------------->
+         <div id="prodDes" class="panel y-scroll" js-scrolling="true" data-title="" title="" style="overflow: hidden;"><div class="afScrollPanel">
+                <div id="prodDesContent" style="overflow: hidden;"><div style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+              </div><div class="scrollBar" style="position: absolute; width: 5px; height: 20px; border-radius: 2px; display: none; background: black; top: 0px;"></div></div>
+         </div><div class="afScrollbar" style="position: absolute; width: 5px; height: 20px; border-radius: 2px; display: none; background: black; top: 0px;"></div></div>
+         <!---------------图片信息------------------->
+        <div id="prodImg" class="panel y-scroll" js-scrolling="true" data-title="" title="" style="overflow: hidden; display: block; transform: none; transition: none 0s ease 0s; z-index: 2;"><div class="afScrollPanel" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+       
+            <div id="prodImgContent" style="overflow: hidden;"> <div class="prodImgList"> <div style="overflow:hidden" id="swipPic"><div id="swipTb" style="width:100%;"><div class="imgWrap"><img src="http://img0C.1088saas.com//81334c/e84757/p_cc2672611bd4a2696cce2687522fe152_300x300.jpg" style="width:290px;height:290px"></div><div class="imgWrap"><img src="http://img0D.1088saas.com//406f3a/218449/p_da8464f876d5146a38099fb7bd4deb99_300x300.jpg" style="width:290px;height:290px"></div></div></div></div></div>
+
+        </div><div class="afScrollbar" style="position: absolute; width: 5px; height: 20px; border-radius: 2px; display: none; background: black; top: 0px;"></div></div>
+        <!---------------商品证书------------------->
+        <div id="prodCert" class="panel y-scroll" data-title="" js-scrolling="true" title="" style="overflow: hidden;"><div class="afScrollPanel">
+            <div id="prodCertContent" class="pnlContWrap">
+            </div>
+        </div><div class="afScrollbar" style="position: absolute; width: 5px; height: 20px; border-radius: 2px; display: none; background: black; top: 0px;"></div></div>
+        <!---------------批次证书------------------->
+        <div id="prodCertBatch" class="panel y-scroll" js-scrolling="true" data-title="" title="" style="overflow: hidden;"><div class="afScrollPanel">
+            <div id="prodCertBatchContent" class="pnlContWrap" style="overflow: hidden;"><div style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+            </div><div class="scrollBar" style="position: absolute; width: 5px; height: 20px; border-radius: 2px; display: none; background: black; top: 0px;"></div></div>
+
+        </div><div class="afScrollbar" style="position: absolute; width: 5px; height: 20px; border-radius: 2px; display: none; background: black; top: 0px;"></div></div>
+         <!---------------产品信息------------------->
+        <div id="prodInfo" class="panel y-scroll" js-scrolling="true" data-title="" title="" style="overflow: hidden;"><div class="afScrollPanel">
+                <div id="prodInfoContent" class="pnlContWrap">
+                </div>
+        </div><div class="afScrollbar" style="position: absolute; width: 5px; height: 20px; border-radius: 2px; display: none; background: black; top: 0px;"></div></div>
+         <!---------------物流信息------------------->
+         <div id="logisticsInfo" class="panel y-scroll" js-scrolling="true" data-title="" title="" style="overflow: hidden;"><div class="afScrollPanel">
+                <div id="logsInfoContent" class="pnlContWrap">
+                </div>
+        </div><div class="afScrollbar" style="position: absolute; width: 5px; height: 20px; border-radius: 2px; display: none; background: black; top: 0px;"></div></div>
+
+    <div data-title="" id="relaPro" class="panel y-scroll" data-nav="second_nav" js-scrolling="true" title="" style="overflow: hidden;"><div class="afScrollPanel">
+         <!--显示相关产品 -->
+         <div id="relPro" class="" style="   ">
+            <div id="relProContent" style=" "></div>
+            <div style="width:100%; ">
+            <div id="btnRelPro" class="BtnMoreRes" style=" width:100%;height:40px; width:90%;" onclick="$(this).hide();GetMorePro(1);"></div>
+            <div id="showProLod" style="  width:100%; height:30px;text-align:center; margin-bottom:80px; "></div>
+          
+            </div>
+         </div>
+         <!--<div id="aaa" style=" height:100px; background-color:blue; ">sdsdsd</div>-->
+    </div><div class="afScrollbar" style="position: absolute; width: 5px; height: 20px; border-radius: 2px; display: none; background: black; top: 0px;"></div></div>
+
+   <!-- 相关产品商品详细-->
+    <div data-title="" id="proDetail" class="panel y-scroll" js-scrolling="true" title="" style="overflow: hidden;"><div class="afScrollPanel">
+        <div id="proDetailContent">
+        </div>
+    <!--<div id="popProDetail"></div>-->
+    </div><div class="afScrollbar" style="position: absolute; width: 5px; height: 20px; border-radius: 2px; display: none; background: black; top: 0px;"></div></div>
+   
+<div id="afui_ajax" data-crc="afui_ajax" class="panel y-scroll" js-scrolling="true" title="" data-title="" style="overflow: hidden;"><div class="afScrollPanel"></div><div class="afScrollbar" style="position: absolute; width: 5px; height: 20px; border-radius: 2px; display: none; background: black; top: 0px;"></div></div></div>
+
+    
+   <!-- <script src="../JS/WebPart/PxxBottom.js" type="text/javascript"></script><div id="navbar" class="footer"><footer id="defaultNav"><a href="#main" id="A8" class="icon ico-01b" onclick="window.location.href='antifalsify.htm'" data-ignore-pressed="true" data-resethistory="true" style="width: 24%;">查询结果</a><a id="A5" style="width: 24%; display: none;" class="icon ico-12" onclick="window.location.href='BatchInfo.htm'" data-ignore-pressed="true" data-resethistory="true" afmoldstyle="inline-block">批次信息</a><a href="#infoPanel" id="A2" class="icon ico-18" style="width: 24%;" onclick="window.location.href='Feedback.htm'" data-ignore-pressed="true" data-resethistory="true">信息反馈</a><a id="A1" class="icon ico-03" onclick="window.location.href='ProdList.htm'" data-ignore-pressed="true" data-resethistory="true" style="width: 24%;">系列产品</a><a id="A3" class="icon ico-17" onclick="window.location.href='CustList.htm'" data-ignore-pressed="true" data-resethistory="true" style="width: 25%;">销售商家</a></footer></div> -->
+
+<div id="menu" class="tabletMenu" style="overflow: hidden;"><div id="menu_scroller" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="afScrollbar" style="position: absolute; width: 5px; height: 20px; border-radius: 2px; display: none; background: black; top: 0px;"></div></div><div id="aside_menu" style="overflow: hidden;"><div id="aside_menu_scroller" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="afScrollbar" style="position: absolute; width: 5px; height: 20px; border-radius: 2px; display: none; background: black; top: 0px;"></div></div><div id="afui_modal" afmoldstyle="" style="display: none;"><div id="modalHeader" class="header"></div><div id="modalContainer" style="overflow: hidden;"><div style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="afScrollbar" style="position: absolute; width: 5px; height: 20px; border-radius: 2px; display: none; background: black; top: 0px;"></div></div><div id="modalFooter" class="footer"></div><div id="modalTransContainer"></div></div></div>
+
+
+<script>
+    
+//    function SetTitle2(obj, css, title) {
+//       
+//        $("#Title").html(title);
+//        $('#pxxPageTitle2').text(title)
+//        $("#A1").attr("class","icon ico-03");
+//        $("#A2").attr("class", "icon ico-18");
+//        $("#A3").attr("class", "icon ico-17");
+//        $("#A8").attr("class", "icon ico-01");
+//        $("#A5").attr("class", "icon ico-12");
+
+//        $(obj).removeClass(css);
+//        $(obj).addClass(css + "b");
+
+//        
+//    }
+    function SetTitle(title) {
+//        $('#pxxPageTitle2').text(title)
+//        $('#pxxPageTitle2').removeClass("titleDownLoad");
+
+    }
+
+    //图片加载中调用
+    function ImgLoad(obj) {
+
+        $(".imgLodding").hide();
+       
+
+    }
+
+
+
+    function PageLangFan() {
+
+        $("#title").html($("#title").html().s2t());
+        $("#navbar").html($("#navbar").html().s2t());
+        $("#MainPro").html($("#MainPro").html().s2t());
+        $("#SafetyInfoContent").html($("#SafetyInfoContent").html().s2t());
+        $("#factoryInfoContent").html($("#factoryInfoContent").html().s2t());
+        $("#prodDesContent").html($("#prodDesContent").html().s2t());
+        $("#prodImgContent").html($("#prodImgContent").html().s2t());
+        $("#prodCertContent").html($("#prodCertContent").html().s2t());
+        $("#prodCertBatchContent").html($("#prodCertBatchContent").html().s2t());
+        $("#prodInfoContent").html($("#prodInfoContent").html().s2t());
+        $("#logsInfoContent").html($("#logsInfoContent").html().s2t());
+//        $("#pxxPageTitle2").html($("#pxxPageTitle2").html().s2t());
+
+    }
+    function PageLangJian() {
+        $("#title").html($("#title").html().t2s());
+        $("#navbar").html($("#navbar").html().t2s());
+        $("#MainPro").html($("#MainPro").html().t2s());
+        $("#SafetyInfoContent").html($("#SafetyInfoContent").html().t2s());
+        $("#factoryInfoContent").html($("#factoryInfoContent").html().t2s());
+        $("#prodDesContent").html($("#prodDesContent").html().t2s());
+        $("#prodImgContent").html($("#prodImgContent").html().t2s());
+        $("#prodCertContent").html($("#prodCertContent").html().t2s());
+        $("#prodCertBatchContent").html($("#prodCertBatchContent").html().t2s());
+        $("#prodInfoContent").html($("#prodInfoContent").html().t2s());
+        $("#logsInfoContent").html($("#logsInfoContent").html().t2s());
+//        $("#pxxPageTitle2").html($("#pxxPageTitle2").html().t2s());
+    }
+
+  
+
+</script>
+   
+
+
+
+
+<script>
+
+    setInterval(IntervalFun, 1000);
+    function IntervalFun() {
+        $("#backButton").text("Back");
+        var certHei = $("#certbox").height();
+        var prodHei = $("#prod").height();
+        $("#MainPro").height(certHei + prodHei + 150);
+    }
+
+    var myScroller;
+    $.ui.ready(function () {
+        var myScroller = $("#main").scroller({
+            verticalScroll: true,
+            horizontalScroll: false,
+            autoEnable: true
+        })
+
+        var myScroller_prodCert = $("#prodCert").scroller({});
+        var myScroller_prodImg = $("#prodImgContent").scroller({});
+        var myScroller_prodDes = $("#prodDesContent").scroller({});
+        var myScroller_prodCertBatch = $("#prodCertBatchContent").scroller({});
+        var myScroller_batchInfo = $("#batchInfoContent").scroller({});
+        myScroller.addInfinite();
+
+        $.bind(myScroller, 'scrollend', function () {
+            console.log("scroll end");
+        });
+
+        $.bind(myScroller, 'scrollstart', function () {
+            console.log("scroll start");
+        });
+
+        $.bind(myScroller, "refresh-trigger", function () {
+
+            console.log("refresh-trigger");
+        });
+
+        var hideClose;
+        $.bind(myScroller, "refresh-release", function () {
+            return;
+            console.log("refresh-release");
+            var that = this;
+            clearTimeout(hideClose);
+            hideClose = setTimeout(function () {
+                console.log("hiding manually refresh");
+                that.hideRefresh();
+            }, 5000);
+
+            return false; //tells it to not auto-cancel the refresh
+        });
+
+        $.bind(myScroller, "refresh-cancel", function () {
+            console.log("refresh-cancel");
+
+            clearTimeout(hideClose);
+        });
+
+        $.bind(myScroller, "refresh-finish", function () {
+            console.log("refresh-finish");
+        });
+
+        myScroller.enable();
+        $.bind(myScroller, "infinite-scroll", function () {
+
+            var self = this;
+            console.log("infinite triggered");
+            //            $(this.el).append("<div id='infinite' style='height:30px;line-height:30px;text-align:center;font-weight:bold'>加载信息，请稍后...</div>");
+            $.bind(myScroller, "infinite-scroll-end", function () {
+                $.unbind(myScroller, "infinite-scroll-end");
+                self.scrollToBottom();
+                setTimeout(function () {
+                    $(self.el).find("#infinite").remove();
+                    self.clearInfinite();
+                    if (index != -1)
+                        GetMorePro(1);
+                   
+                }, 100);
+            });
+        });
+       
+
+
+    });
+
+ 
+</script>
+
+
+
+<div id="afui_mask" class="ui-loader" style="z-index: 20000; display: none;"><span class="ui-icon ui-icon-loading spin"></span><h1>Loading Content</h1></div><div style="position: static; display: none; width: 0px; height: 0px; border: none; padding: 0px; margin: 0px;"><div id="trans-tooltip"><div id="tip-left-top" style="background: url(&quot;chrome-extension://edhchknefojhifoiebpcbkhcjlkkklci/imgs/map/tip-left-top.png&quot;);"></div><div id="tip-top" style="background: url(&quot;chrome-extension://edhchknefojhifoiebpcbkhcjlkkklci/imgs/map/tip-top.png&quot;) repeat-x;"></div><div id="tip-right-top" style="background: url(&quot;chrome-extension://edhchknefojhifoiebpcbkhcjlkkklci/imgs/map/tip-right-top.png&quot;);"></div><div id="tip-right" style="background: url(&quot;chrome-extension://edhchknefojhifoiebpcbkhcjlkkklci/imgs/map/tip-right.png&quot;) repeat-y;"></div><div id="tip-right-bottom" style="background: url(&quot;chrome-extension://edhchknefojhifoiebpcbkhcjlkkklci/imgs/map/tip-right-bottom.png&quot;);"></div><div id="tip-bottom" style="background: url(&quot;chrome-extension://edhchknefojhifoiebpcbkhcjlkkklci/imgs/map/tip-bottom.png&quot;) repeat-x;"></div><div id="tip-left-bottom" style="background: url(&quot;chrome-extension://edhchknefojhifoiebpcbkhcjlkkklci/imgs/map/tip-left-bottom.png&quot;);"></div><div id="tip-left" style="background: url(&quot;chrome-extension://edhchknefojhifoiebpcbkhcjlkkklci/imgs/map/tip-left.png&quot;);"></div><div id="trans-content"></div></div><div id="tip-arrow-bottom" style="background: url(&quot;chrome-extension://edhchknefojhifoiebpcbkhcjlkkklci/imgs/map/tip-arrow-bottom.png&quot;);"></div><div id="tip-arrow-top" style="background: url(&quot;chrome-extension://edhchknefojhifoiebpcbkhcjlkkklci/imgs/map/tip-arrow-top.png&quot;);"></div></div></body></html>

@@ -1,0 +1,596 @@
+﻿<!DOCTYPE html>
+ <html>
+<meta charset="utf-8">
+<center>
+
+
+	
+
+  
+
+ <p align="center"><font face="Fixedsys"><font color=0>
+<h5>现在是:<span id="year"></span>年
+    <span id="month"></span>月
+    <span id="day"></span>日
+    星期<span id="week"></span>
+    <span id="h"></span>时 <span id="m"></span>分 <span id="s"></span>秒
+    
+    <script type="text/javascript">
+        //获取'年'的ID year
+        var year = document.getElementById('year'),
+        //获取'月'的ID month
+        month = document.getElementById('month'),
+        //获取'日'的ID day
+        day = document.getElementById('day'),
+        //获取'星期'的ID week
+        week = document.getElementById('week'),
+        //获取'时'的ID h
+        h = document.getElementById('h'),
+        //获取'分'的ID m
+        m = document.getElementById('m'),
+        //获取'秒'的ID s
+        s = document.getElementById('s');
+        
+        function timed() {
+            //创建Date时间对象
+            var time = new Date();
+            //获取四位数的年分并更改year的内容
+            year.innerHTML=time.getFullYear();
+            //获取月份+1并更改month的内容 月份+1 是因为月份默认从0开始
+            month.innerHTML=time.getMonth()+1;
+            //获取日期并更改day的内容
+            day.innerHTML=time.getDate();
+            //获取星期并更改week的内容
+            week.innerHTML = time.getDay();
+            //获取小时并更改h的内容
+            h.innerHTML=time.getHours();
+            //获取分钟并更改m的内容
+            m.innerHTML=(time.getMinutes() > 9 ? time.getMinutes() : "0" + time.getMinutes());
+            //获取秒钟并更改s的内容
+            s.innerHTML=(time.getSeconds() > 9 ? time.getSeconds() : "0" + time.getSeconds());
+            //获取星期数用于下面的判断
+            w = time.getDay();
+            //定义个数组并赋值
+            var weekArr = ['天','一','二','三','四','五','六'];
+            //for循环
+            for(var i = 0;i<weekArr.length;i++) {
+                //如果w的值等于i的值
+                if (w == i) {
+                    //就更改week的内容为weekArr[i]
+                    //也就是中文的数字
+                    week.innerHTML= weekArr[i];
+                }
+            }
+            //setTimeout函数设置间隔 每1000毫秒执行一次函数
+            setTimeout("timed()",1000);
+            
+        }
+    
+    timed();
+        </script></h5>
+
+
+
+
+       
+</html>
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="screen-orientation" content="portrait">
+<meta name="format-detection" content="telephone=no">
+<meta name="browsermode" content="application">
+<meta name="x5-page-mode" content="app">
+<title>半火代码</title>
+<style>
+
+
+
+        body{ max-width: 400px; margin: 0 auto;}
+        ul,li{ list-style: none; padding: 0; margin: 0;}
+        .use-tip{ padding:20px 0; text-align:center; color:#f00; margin:0; }
+        .ff{ padding:5px 0; color:#d59525; margin:0; padding-left: 20px;}
+        .hh{ padding:10px 0; color:#ff0000; margin:0; padding-left: 20px;}
+        .copy-demo{ width: 100%; height: auto; overflow: hidden; margin-top: -70px; margin-bottom: 50px; }
+        .li{ padding: 5px; border-bottom: 1px solid #f0f0f0; overflow: hidden;}
+        .copy-pp{ color: #666; line-height: 1.2; padding-left: 20px;}
+        .copy-btn{ background-color: cornflowerblue; color: #fff;margin-left: 18px;}
+        .copy-text{ opacity: 0;}
+        .p{padding-left: 20px;}
+        .mkmk{color: #ff0000;}
+
+
+.ring {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: relative;
+}
+
+.fraction {
+	position: absolute;
+	font-size: 30px;
+	font-weight: bold;
+	color: #00ABEB;
+}
+
+.small {
+	font-size: 12px;
+	font-weight: lighter;
+}
+
+.title {
+	font-size: 20px;
+	color: #00ABEB;
+	bottom: 40px;
+	position: absolute;
+}
+</style>
+
+</head>
+<body>
+
+<h3 class="mkmk">半火代码</h3>
+    <ul class="ul">
+
+
+
+
+
+
+
+
+
+<li class="li"></li>
+
+
+    <h3 class="mkmk">功能(上色，聚点无后，透视)</h3>
+    <ul class="ul">
+	
+	
+	
+	<li class="li"></li>
+        </li>  
+	
+	   <li>
+            <h3 class="ff">
+            [动态值午后]
+            </h3>
+            <p class="p">每次游戏更新都会变</p>
+			<p class="p">设置里的临近范围先改成0x250</p>
+			<p class="p">（i32）数值搜索 1078355558 临近搜索49</p>
+			<p class="p">点击第一个49右边的感叹号</p>
+			<p class="p">这时候跳转到内存区域</p>
+			<p class="p">然后点击（i32） 最上面的是49</p>
+			<p class="p">往下跳4格  左边的地址是8结尾</p>
+			<p class="p">右边是5位数的数值 这个就是午后</p>
+			<p class="p">把临近范围改回20 </p>
+			<p class="p">i64搜索刚才找到的5位数 </p>
+			<p class="p">第一个结果8结尾的改0</p>
+	</li>
+<li class="li"></li>
+        </li>  
+
+
+   <li>
+            <h3 class="ff">
+            [全局防闪]
+            </h3>
+            <p class="p">先改其他功能，最后改防闪</p>
+			<p class="p">设置里的邻近范围设置成0x200</p>
+			<p class="p">数值搜索i64搜 26429</p>
+			<p class="p">邻近搜索F32搜 -1</p>
+			<p class="p">58C结尾的-1改成 -999</p>
+			<p class="p">设置里的邻近范围改回0x20</p>
+
+	</li>
+	
+	<li class="li"></li>
+        </li>  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+        <li>
+			
+            <h3 class="ff">
+            [上色代码]
+            </h3>
+            <p class="p">数值搜索（F32）</p>
+            <li>
+            <div class="copy-pp">
+                0.05499718338
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+        	</li>
+            <p class="p">联合搜索（F32）</p>
+            <li>
+            <div class="copy-pp">
+                1
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+        	</li>
+            <p class="hh">方案一：1改99（白色）</p>
+            <p class="hh">方案二：1改-1（黑色）</p>
+            <li class="li"></li>
+        </li>
+       
+    
+
+
+
+
+
+
+
+
+
+
+
+       <!--      
+
+        <li>
+            <h3 class="ff">
+            [镜头防抖]
+            </h3>
+            <p class="p">数值搜索（I64）</p>
+            <li>
+            <div class="copy-pp">
+                6874028368030887269
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+        	</li>
+            <p class="p">第一个数据改0</p>
+            <li>
+            <div class="copy-pp">
+               0
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+				<li class="li"></li>
+        </li>
+   <li>
+            <h3 class="ff">
+  [枪口防抖]
+            </h3>
+            <p class="p">数值搜索（I64）</p>
+            <li>
+            <div class="copy-pp">
+                28549271802637893
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+        	</li>
+            <p class="p">前面三个数据改0</p>
+            <li>
+            <div class="copy-pp">
+               0
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+				<li class="li"></li>
+        </li>
+
+       
+        <li>
+            <h3 class="ff">
+            
+-->
+<li>
+            <h3 class="ff">
+            [透视A9-10 ios12]
+            </h3>
+            <p class="p">数值搜索（I32）</p>
+            <li>
+            <div class="copy-pp">
+                1090650533
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+        	</li>
+            <p class="p">联合搜索（i16）</p>
+            <li>
+            <div class="copy-pp">
+                23
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+				
+<p class="hh">两个C结尾23改2</p>
+<li class="li"></li>
+        </li>  
+
+  
+ <li>
+            <h3 class="ff">
+            [透视A9-10 ios13]
+            </h3>
+            <p class="p">数值搜索（I32）</p>
+            <li>
+            <div class="copy-pp">
+                1090650533
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+        	</li>
+            <p class="p">联合搜索（i16）</p>
+            <li>
+            <div class="copy-pp">
+                23
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+				
+<p class="hh">两个8 或者两个2结尾的改2</p>
+<li class="li"></li>
+        </li>
+
+
+
+
+
+
+<li>
+            <h3 class="ff">
+            [透视A10-ios14]
+            </h3>
+            <p class="p">数值搜索（I32）</p>
+            <li>
+            <div class="copy-pp">
+                1090650533
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+        	</li>
+            <p class="p">联合搜索（i16）</p>
+            <li>
+            <div class="copy-pp">
+                23
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+				
+<p class="hh">A结尾的改2</p>
+<li class="li"></li>
+        </li>
+
+
+
+        <li>
+            <h3 class="ff">
+            [A11 ios12]
+            </h3>
+            <p class="p">数值搜索（i32）</p>
+            <li>
+            <div class="copy-pp">
+              -1681259486
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+        	</li>
+            <p class="p">全改</p>
+            <li>
+            <div class="copy-pp">
+               -1681259420
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+				<li class="li"></li>
+        </li>
+
+
+
+        <li>
+            <h3 class="ff">
+            [A11 ios13]
+            </h3>
+            <p class="p">数值搜索（F32）</p>
+            <li>
+            <div class="copy-pp">
+              -2.037133e+29 
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+        	</li>
+            <p class="p">全改</p>
+            <li>
+            <div class="copy-pp">
+               -2.014039e-21 
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+				<li class="li"></li>
+        </li>
+
+
+        <li>
+            <h3 class="ff">
+            [A11 ios13]
+            </h3>
+            <p class="p">数值搜索（i64）</p>
+            <li>
+            <div class="copy-pp">
+              -3185729242222428156 
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+        	</li>
+            <p class="p">全改</p>
+            <li>
+            <div class="copy-pp">
+				-3185728958754586620
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+				<li class="li"></li>
+        </li>
+
+
+        <li>
+            <h3 class="ff">
+            [A11 ios14]
+            </h3>
+            <p class="p">数值搜索（i32）</p>
+            <li>
+            <div class="copy-pp">
+              -802881864
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+        	</li>
+            <p class="p">全改</p>
+            <li>
+            <div class="copy-pp">
+             -802877713
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+				<li class="li"></li>
+        </li>
+
+
+    <li>
+            <h3 class="ff">
+            [A12- ios12]
+            </h3>
+            <p class="p">数值搜索（i32）</p>
+            <li>
+            <div class="copy-pp">
+              18555566
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+        	</li>
+            <p class="p">联合i16</p>
+            <li>
+            <div class="copy-pp">
+             283
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+            <p class="p">数据A结尾改</p>
+            <li>
+            <div class="copy-pp">
+             323
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+				<li class="li"></li>
+        </li>
+
+
+
+
+
+
+        <li>
+            <h3 class="ff">
+            [A12-A13  ios13]
+            </h3>
+            <p class="p">数值搜索（i64）</p>
+            <li>
+            <div class="copy-pp">
+                -4435784799577488772
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+        	</li>
+            <p class="p">所有8结尾的改</p>
+            <li>
+            <div class="copy-pp">
+                -4435784799574867332
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+				
+       
+        </li>
+
+
+ <li>
+            <h3 class="ff">
+            [a12-a13 ios14]
+            </h3>
+            <p class="p">数值搜索（i64）</p>
+            <li>
+            <div class="copy-pp">
+               72897733173377466 
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+        	</li>
+            <p class="p">全改</p>
+            <li>
+            <div class="copy-pp">
+              459432652235798970
+            </div>
+            <button type="button" class="copy-btn js-copy-btn">点击复制代码</button>
+				
+        </li>
+
+
+   
+
+  
+
+
+<li class="li"></li>
+  
+  </center>
+</section>
+
+
+<script type="text/javascript">
+    // 复制文案功能:
+    const jsCopy = function(obj) {
+        function fn() {
+            var u = navigator.userAgent;
+            //苹果
+            if (u.match(/(iPhone|iPod|iPad);?/i)) {
+                //要复制文字的节点
+                var copyDOM = obj.parentNode.firstChild.nextElementSibling;
+                var range = document.createRange();
+                // 选中需要复制的节点
+                range.selectNode(copyDOM);
+                // 执行选中元素
+                window.getSelection().addRange(range);
+                // 执行 copy 操作
+                var successful = document.execCommand('copy');
+                try {
+                    var msg = successful ? 'successful' : 'unsuccessful';
+                    console.log('copy is' + msg);
+                } catch(err) {
+                    console.log(err);
+                }
+                // 移除选中的元素
+                window.getSelection().removeAllRanges();
+                obj.innerHTML = '已复制'
+            }
+            // 安卓
+            if(u.indexOf('Android') > -1 ){
+                var $copyPP = obj.parentNode.firstChild.nextElementSibling,
+                $copyText = obj.parentNode.lastChild.nextElementSibling;
+                $copyText.innerHTML = $copyPP.innerHTML.replace(/<[^>]+>/g,"");
+                $copyText.select(); // 选择对象
+                document.execCommand("Copy"); // 执行浏览器复制命令
+                obj.innerHTML = '已复制';
+            }
+            // 安卓系统的UC浏览器
+            if(u.indexOf('Android') > -1 && u.indexOf('UCBrowser') > -1){
+                obj.innerHTML = '点击复制文案';
+                alert('若点击复制文案无效，请长按内容手动复制！');
+            }
+        }
+
+        obj.addEventListener('click', fn, false);
+    };
+
+    //
+    let copyBtns = document.querySelectorAll('.js-copy-btn');
+    copyBtns.forEach((obj) => {
+        jsCopy(obj);
+
+    });
+</script>
+</body>
+</html>
